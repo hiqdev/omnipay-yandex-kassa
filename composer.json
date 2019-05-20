@@ -1,0 +1,69 @@
+{
+    "name": "hiqdev/omnipay-yandex-kassa",
+    "type": "library",
+    "description": "Yandex.Kassa driver for Omnipay payment processing library",
+    "keywords": [
+        "php",
+        "omnipay",
+        "yandex-kassa",
+        "merchant",
+        "payment"
+    ],
+    "homepage": "https://github.com/hiqdev/omnipay-yandex-kassa",
+    "license": "MIT",
+    "support": {
+        "email": "support@hiqdev.com",
+        "source": "https://github.com/hiqdev/omnipay-yandex-kassa",
+        "issues": "https://github.com/hiqdev/omnipay-yandex-kassa/issues",
+        "wiki": "https://github.com/hiqdev/omnipay-yandex-kassa/wiki",
+        "forum": "http://forum.hiqdev.com/"
+    },
+    "authors": [
+        {
+            "name": "Andrii Vasyliev",
+            "role": "Project lead",
+            "email": "sol@hiqdev.com",
+            "homepage": "http://hipanel.com/"
+        },
+        {
+            "name": "Dmitry Naumenko",
+            "role": "Lead backend developer",
+            "email": "d.naumenko.a@gmail.com",
+            "homepage": "http://silverfire.me/"
+        },
+        {
+            "name": "Andrey Klochok",
+            "role": "Lead frontend developer",
+            "email": "andreyklochok@gmail.com",
+            "homepage": "http://hiqdev.com/"
+        },
+        {
+            "name": "Yuriy Myronchuk",
+            "role": "QA Lead",
+            "email": "bladeroot@gmail.com",
+            "homepage": "http://hiqdev.com/"
+        }
+    ],
+    "require": {
+        "omnipay/common": "~2.3",
+        "yandex-money/yandex-checkout-sdk-php": "^1.2.1"
+    },
+    "require-dev": {
+        "omnipay/tests": "~2.0",
+        "hiqdev/hidev": "dev-master",
+        "hiqdev/hidev-php": "dev-master",
+        "hiqdev/hidev-hiqdev": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Omnipay\\YandexKassa\\": "src",
+            "Omnipay\\YandexKassa\\Tests\\": "tests/unit"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}
