@@ -10,13 +10,15 @@
 
 namespace Omnipay\YandexKassa;
 
+use Guzzle\Http\ClientInterface;
 use Omnipay\Common\AbstractGateway;
-use Omnipay\Common\Message\AbstractRequest;
-use Omnipay\YandexKassa\Message\AuthenticateRequest;
-use Omnipay\YandexKassa\Message\CompletePurchaseRequest;
+use Omnipay\YandexKassa\Message\CaptureRequest;
+use Omnipay\YandexKassa\Message\CaptureResponse;
 use Omnipay\YandexKassa\Message\DetailsRequest;
 use Omnipay\YandexKassa\Message\DetailsResponse;
+use Omnipay\YandexKassa\Message\IncomingNotificationRequest;
 use Omnipay\YandexKassa\Message\PurchaseRequest;
+use Symfony\Component\HttpFoundation\Request as HttpRequest;
 use YandexCheckout\Client;
 
 /**
@@ -26,6 +28,24 @@ use YandexCheckout\Client;
  */
 class Gateway extends AbstractGateway
 {
+    /** @var Client|null */
+    private $yandexClient;
+
+    public function __construct(ClientInterface $httpClient = null, HttpRequest $httpRequest = null)
+    {
+        parent::__construct($httpClient, $httpRequest);
+    }
+
+    protected function getYandexClient(): Client
+    {
+        if ($this->yandexClient === null) {
+            $this->yandexClient = new Client();
+            $this->yandexClient->setAuth($this->getShopId(), $this->getSecret());
+        }
+
+        return $this->yandexClient;
+    }
+
     public function getName()
     {
         return 'Yandex.Kassa';
@@ -57,48 +77,40 @@ class Gateway extends AbstractGateway
      */
     public function purchase(array $parameters = [])
     {
-        return $this->createRequest(PurchaseRequest::class, array_merge($parameters, [
-            'yandexClient' => $this->buildYandexClient($parameters),
-        ]));
+        return $this->createRequest(PurchaseRequest::class, $this->injectYandexClient($parameters));
     }
 
     /**
      * @param array $parameters
-     * @return CompletePurchaseRequest|\Omnipay\Common\Message\AbstractRequest
+     * @return CaptureResponse|\Omnipay\Common\Message\AbstractRequest
      */
-    public function completePurchase(array $parameters = [])
+    public function capture(array $parameters = [])
     {
-        return $this->createRequest(CompletePurchaseRequest::class, $parameters);
+        return $this->createRequest(CaptureRequest::class, $this->injectYandexClient($parameters));
+    }
+
+    /**
+     * @param array $parameters
+     * @return \Omnipay\Common\Message\AbstractRequest|DetailsRequest
+     */
+    public function details(array $parameters = [])
+    {
+        return $this->createRequest(DetailsRequest::class, $this->injectYandexClient($parameters));
     }
 
     /**
      * @param array $parameters
      * @return \Omnipay\Common\Message\AbstractRequest|DetailsResponse
      */
-    public function details(array $parameters = [])
+    public function notification(array $parameters = [])
     {
-        if (!isset($parameters['access_token'])) {
-            $authentication = $this->authenticate($parameters)->send();
-            $parameters['access_token'] = $authentication->getAccessToken();
-        }
-
-        return $this->createRequest(DetailsRequest::class, $parameters);
+        return $this->createRequest(IncomingNotificationRequest::class, $this->injectYandexClient($parameters));
     }
 
-    /**
-     * @param array $parameters
-     * @return AuthenticateRequest|AbstractRequest
-     */
-    public function authenticate(array $parameters = [])
+    private function injectYandexClient(array $parameters): array
     {
-        return $this->createRequest(AuthenticateRequest::class, $parameters);
-    }
+        $parameters['yandexClient'] = $this->getYandexClient();
 
-    private function buildYandexClient(array $parameters): Client
-    {
-        $client = new Client();
-        $client->setAuth($this->getShopId(), $this->getSecret());
-
-        return $client;
+        return $parameters;
     }
 }

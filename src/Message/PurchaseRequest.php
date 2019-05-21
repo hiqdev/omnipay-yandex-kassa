@@ -43,11 +43,11 @@ class PurchaseRequest extends AbstractRequest
                 'metadata' => [
                     'transactionId' => $this->getTransactionId(),
                 ],
-            ]);
+            ], 'create-' . $this->getTransactionId());
 
             return $paymentResponse;
         } catch (Throwable $e) {
-            throw new InvalidRequestException('Failed to request purchase: ' . $e->getMessage(), $e);
+            throw new InvalidRequestException('Failed to request purchase: ' . $e->getMessage(), 0, $e);
         }
     }
 
@@ -61,9 +61,9 @@ class PurchaseRequest extends AbstractRequest
         return $this->getParameter('details');
     }
 
-    public function setDetails(string $value): void
+    public function setDetails(string $value)
     {
-        $this->setParameter('details', $value);
+        return $this->setParameter('details', $value);
     }
 }
 

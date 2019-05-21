@@ -45,6 +45,8 @@
         }
     ],
     "require": {
+        "php": ">=7.1",
+        "ext-json": "*",
         "omnipay/common": "~2.3",
         "yandex-money/yandex-checkout-sdk-php": "^1.2.1"
     },
