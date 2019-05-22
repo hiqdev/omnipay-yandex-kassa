@@ -13,24 +13,6 @@ processing library for PHP 5.3+.
 
 This package implements [ePayments](https://epayments.com/) support for Omnipay.
 
-## Installation
-
-The preferred way to install this library is through [composer](http://getcomposer.org/download/).
-
-Either run
-
-```sh
-php composer.phar require "hiqdev/omnipay-yandex-kassa"
-```
-
-or add
-
-```json
-"hiqdev/omnipay-yandex-kassa": "*"
-```
-
-to the require section of your composer.json.
-
 ## Basic Usage
 
 The following gateway is provided by this package:
@@ -51,10 +33,3 @@ you can subscribe to.
 
 If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/hiqdev/omnipay-epayments/issues),
 or better yet, fork the library and submit a pull request.
-
-## License
-
-This project is released under the terms of the MIT [license](LICENSE).
-Read more [here](http://choosealicense.com/licenses/mit).
-
-Copyright © 2019, HiQDev (http://hiqdev.com/)

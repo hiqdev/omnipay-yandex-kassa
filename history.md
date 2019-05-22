@@ -3,6 +3,7 @@
 ## [2.0.0] - 2019-05-22
 
 - Implemented basic Yandex.Kassa operations
+    - [b8d9e65] 2019-05-22 fixed readme [@SilverFire]
     - [c9faba9] 2019-05-22 csfixed [@SilverFire]
     - [d9eb38a] 2019-05-22 Added unit tests coverage [@SilverFire]
     - [da2a11b] 2019-05-21 Implemented success story [@SilverFire]
@@ -22,5 +23,6 @@
 [d9eb38a]: https://github.com/hiqdev/omnipay-epayments/commit/d9eb38a
 [da2a11b]: https://github.com/hiqdev/omnipay-epayments/commit/da2a11b
 [32b9724]: https://github.com/hiqdev/omnipay-epayments/commit/32b9724
-[Under development]: https://github.com/hiqdev/omnipay-yandex-kassa/releases
+[Under development]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/2.0.0...HEAD
 [2.0.0]: https://github.com/hiqdev/omnipay-yandex-kassa/releases/tag/2.0.0
+[b8d9e65]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/b8d9e65
