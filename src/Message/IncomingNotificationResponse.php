@@ -34,7 +34,7 @@ class IncomingNotificationResponse extends AbstractResponse
         parent::__construct($request, $data);
     }
 
-    public function getOrderId()
+    public function getTransactionId()
     {
         return $this->data['object']['metadata']['transactionId'] ?? null;
     }

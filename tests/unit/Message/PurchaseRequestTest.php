@@ -10,7 +10,9 @@
 
 namespace Omnipay\YandexKassa\Tests\Message;
 
+use Omnipay\YandexKassa\Message\CaptureResponse;
 use Omnipay\YandexKassa\Message\PurchaseRequest;
+use Omnipay\YandexKassa\Message\PurchaseResponse;
 use YandexCheckout\Model\Confirmation\ConfirmationRedirect;
 use YandexCheckout\Request\Payments\CreatePaymentResponse;
 
@@ -22,7 +24,7 @@ class PurchaseRequestTest extends TestCase
     private $shopId         = '54401';
     private $secretKey      = 'test_Fh8hUAVVBGUGbjmlzba6TB0iyUbos_lueTHE-axOwM0';
 
-    private $transactionId  = 'sadf2345asf';
+    private $transactionId  = '5ce3cdb0d1437';
     private $amount         = '12.46';
     private $currency       = 'RUB';
     private $description    = 'Test completePurchase description';
@@ -38,7 +40,7 @@ class PurchaseRequestTest extends TestCase
             'transactionId' => $this->transactionId,
             'amount'        => $this->amount,
             'currency'      => $this->currency,
-            'details'       => $this->description,
+            'description'   => $this->description,
             'returnUrl'     => $this->returnUrl,
         ]);
     }
@@ -47,20 +49,27 @@ class PurchaseRequestTest extends TestCase
     {
         $data = $this->request->getData();
 
-        $this->assertInstanceOf(CreatePaymentResponse::class, $data);
-
-        $this->assertInstanceOf(ConfirmationRedirect::class, $data->getConfirmation());
-        $this->assertSame($this->transactionId, $data->getMetadata()['transactionId']);
-//        $this->assertSame($this->returnUrl,     $data); // Not possible to check the ReturnURL in CreatePaymentResponse
-        $this->assertSame($this->amount,        $data->getAmount()->getValue());
-        $this->assertSame($this->currency,      $data->getAmount()->getCurrency());
+        $this->assertSame($this->amount, $data['amount']);
+        $this->assertSame($this->currency, $data['currency']);
+        $this->assertSame($this->description, $data['description']);
+        $this->assertSame($this->returnUrl, $data['return_url']);
+        $this->assertSame($this->transactionId, $data['transactionId']);
     }
 
     public function testSendData()
     {
-        $data = $this->request->getData();
-        $response = $this->request->sendData($data);
+        $curlClientStub = $this->getCurlClientStub();
+        $curlClientStub->method('sendRequest')->willReturn([
+            [],
+            $this->fixture('payment.pending'),
+            ['http_code' => 200],
+        ]);
 
-        $this->assertInstanceOf(\Omnipay\YandexKassa\Message\PurchaseResponse::class, $response);
+        $this->getYandexClient($this->request)
+             ->setApiClient($curlClientStub)
+             ->setAuth($this->shopId, $this->secretKey);
+
+        $response = $this->request->send();
+        $this->assertInstanceOf(PurchaseResponse::class, $response);
     }
 }

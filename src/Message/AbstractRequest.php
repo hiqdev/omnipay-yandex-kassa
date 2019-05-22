@@ -48,24 +48,4 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     {
         $this->client = $client;
     }
-
-//    public function getTransactionId()
-//    {
-//        return $this->getParameter('orderId');
-//    }
-//
-//    public function setTransactionId($value)
-//    {
-//        return $this->setParameter('orderId', $value);
-//    }
-//
-//    public function getOrderId()
-//    {
-//        return $this->getParameter('orderId');
-//    }
-//
-//    public function setOrderId($value)
-//    {
-//        return $this->setParameter('orderId', $value);
-//    }
 }

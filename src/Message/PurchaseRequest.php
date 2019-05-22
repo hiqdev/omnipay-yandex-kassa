@@ -21,49 +21,41 @@ use YandexCheckout\Request\Payments\CreatePaymentResponse;
  */
 class PurchaseRequest extends AbstractRequest
 {
-    /**
-     * @return CreatePaymentResponse
-     * @throws InvalidRequestException
-     */
     public function getData()
     {
-        $this->validate('amount', 'currency', 'returnUrl', 'transactionId');
+        $this->validate('amount', 'currency', 'returnUrl', 'transactionId', 'description');
 
-        try {
-            $paymentResponse = $this->client->createPayment([
-                'amount' => [
-                    'value' => $this->getAmount(),
-                    'currency' => $this->getCurrency(),
-                ],
-                'description' => $this->getDetails(),
-                'confirmation' => [
-                    'type' => 'redirect',
-                    'return_url' => $this->getReturnUrl(),
-                ],
-                'metadata' => [
-                    'transactionId' => $this->getTransactionId(),
-                ],
-            ], 'create-' . $this->getTransactionId());
-
-            return $paymentResponse;
-        } catch (Throwable $e) {
-            throw new InvalidRequestException('Failed to request purchase: ' . $e->getMessage(), 0, $e);
-        }
+        return [
+            'amount' => $this->getAmount(),
+            'currency' => $this->getCurrency(),
+            'description' => $this->getDescription(),
+            'return_url' => $this->getReturnUrl(),
+            'transactionId' => $this->getTransactionId(),
+        ];
     }
 
     public function sendData($data)
     {
-        return $this->response = new PurchaseResponse($this, $data);
-    }
+        try {
+            $paymentResponse = $this->client->createPayment([
+                'amount' => [
+                    'value' => $data['amount'],
+                    'currency' => $data['currency'],
+                ],
+                'description' => $data['description'],
+                'confirmation' => [
+                    'type' => 'redirect',
+                    'return_url' => $data['return_url'],
+                ],
+                'metadata' => [
+                    'transactionId' => $data['transactionId'],
+                ],
+            ], 'create-' . $data['transactionId']);
 
-    public function getDetails(): ?string
-    {
-        return $this->getParameter('details');
-    }
-
-    public function setDetails(string $value)
-    {
-        return $this->setParameter('details', $value);
+            return $this->response = new PurchaseResponse($this, $paymentResponse);
+        } catch (Throwable $e) {
+            throw new InvalidRequestException('Failed to request purchase: ' . $e->getMessage(), 0, $e);
+        }
     }
 }
 

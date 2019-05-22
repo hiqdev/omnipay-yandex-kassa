@@ -11,6 +11,7 @@
 namespace Omnipay\YandexKassa\Tests\Message;
 
 use Omnipay\YandexKassa\Message\PurchaseRequest;
+use Omnipay\YandexKassa\Message\PurchaseResponse;
 
 class PurchaseResponseTest extends TestCase
 {
@@ -20,7 +21,7 @@ class PurchaseResponseTest extends TestCase
     private $shopId         = '54401';
     private $secretKey      = 'test_Fh8hUAVVBGUGbjmlzba6TB0iyUbos_lueTHE-axOwM0';
 
-    private $transactionId  = 'sadf2345asf';
+    private $transactionId  = '5ce3cdb0d1437';
     private $amount         = '12.46';
     private $currency       = 'RUB';
     private $description    = 'Test completePurchase description';
@@ -36,13 +37,25 @@ class PurchaseResponseTest extends TestCase
             'transactionId' => $this->transactionId,
             'amount'        => $this->amount,
             'currency'      => $this->currency,
-            'details'       => $this->description,
+            'description'   => $this->description,
             'returnUrl'     => $this->returnUrl,
         ]);
     }
 
     public function testSuccess()
     {
+        $curlClientStub = $this->getCurlClientStub();
+        $curlClientStub->method('sendRequest')->willReturn([
+            [],
+            $this->fixture('payment.pending'),
+            ['http_code' => 200],
+        ]);
+
+        $this->getYandexClient($this->request)
+             ->setApiClient($curlClientStub)
+             ->setAuth($this->shopId, $this->secretKey);
+
+        /** @var PurchaseResponse $response */
         $response = $this->request->send();
 
         $this->assertFalse($response->isSuccessful());
@@ -50,7 +63,9 @@ class PurchaseResponseTest extends TestCase
         $this->assertNull($response->getCode());
         $this->assertNull($response->getMessage());
         $this->assertSame('GET', $response->getRedirectMethod());
-        $this->assertStringStartsWith('https://money.yandex.ru/api-pages/v2/payment-confirm/epl?orderId=', $response->getRedirectUrl());
+        $this->assertSame("https://money.yandex.ru/api-pages/v2/payment-confirm/epl?orderId={$response->getTransactionReference()}", $response->getRedirectUrl());
+        $this->assertSame($this->transactionId, $response->getTransactionId());
+        $this->assertSame('247732b9-000f-5000-a000-13d9c7c381a8', $response->getTransactionReference());
         $this->assertEmpty($response->getRedirectData());
     }
 }

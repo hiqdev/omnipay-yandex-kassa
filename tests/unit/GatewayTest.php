@@ -55,16 +55,4 @@ class GatewayTest extends GatewayTestCase
         $this->assertSame($this->currency,      $request->getCurrency());
         $this->assertSame($this->amount,        $request->getAmount());
     }
-
-//    public function testCompletePurchase()
-//    {
-//        $request = $this->gateway->completePurchase([
-//            'transactionId' => $this->transactionId,
-//        ]);
-//
-//        $this->assertSame($this->purse,         $request->getPurse());
-//        $this->assertSame($this->secret,        $request->getSecret());
-//        $this->assertSame($this->transactionId, $request->getTransactionId());
-//    }
-
 }

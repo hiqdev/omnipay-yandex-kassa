@@ -9,6 +9,7 @@ use Omnipay\Common\Message\ResponseInterface;
  * Class IncomingNotificationRequest
  *
  * @author Dmytro Naumenko <d.naumenko.a@gmail.com>
+ * @method IncomingNotificationResponse send()
  */
 class IncomingNotificationRequest extends AbstractRequest
 {
