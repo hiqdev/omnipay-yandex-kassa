@@ -1,6 +1,9 @@
-
 ## [Under development]
 
+## [3.0.0] - 2019-05-22
+
+- Update to Omnipay 3.0
+    - [332f075] 2019-05-22 Updated readme [@SilverFire]
     - [6f3442a] 2019-05-22 fixed readme [@SilverFire]
     - [c9faba9] 2019-05-22 csfixed [@SilverFire]
     - [d9eb38a] 2019-05-22 Added unit tests coverage [@SilverFire]
@@ -8,6 +11,10 @@
     - [32b9724] 2019-05-20 Initial commit: implemented purchase reqeust [@SilverFire]
 
 ## [Development started] - 2019-05-20
+
+## [2.0.0] - 2019-05-22
+
+    - [b8d9e65] 2019-05-22 fixed readme [@SilverFire]
 
 [@hiqsol]: https://github.com/hiqsol
 [sol@hiqdev.com]: https://github.com/hiqsol
@@ -23,3 +30,7 @@
 [da2a11b]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/da2a11b
 [32b9724]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/32b9724
 [Under development]: https://github.com/hiqdev/omnipay-yandex-kassa/releases
+[332f075]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/332f075
+[b8d9e65]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/b8d9e65
+[3.0.0]: https://github.com/hiqdev/omnipay-yandex-kassa/releases/tag/3.0.0
+[Development started]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/2.0.0...Development started
