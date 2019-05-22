@@ -1,4 +1,12 @@
 <?php
+/**
+ * Yandex.Kassa driver for Omnipay payment processing library
+ *
+ * @link      https://github.com/hiqdev/omnipay-yandex-kassa
+ * @package   omnipay-yandex-kassa
+ * @license   MIT
+ * @copyright Copyright (c) 2019, HiQDev (http://hiqdev.com/)
+ */
 
 namespace Omnipay\YandexKassa\Message;
 
@@ -6,7 +14,7 @@ use Omnipay\Common\Exception\InvalidResponseException;
 use Omnipay\Common\Message\ResponseInterface;
 
 /**
- * Class DetailsRequest
+ * Class DetailsRequest.
  *
  * @author Dmytro Naumenko <d.naumenko.a@gmail.com>
  */
@@ -20,11 +28,11 @@ class DetailsRequest extends AbstractRequest
     }
 
     /**
-     * Send the request with specified data
+     * Send the request with specified data.
      *
      * @param  mixed $data The data to send
-     * @return DetailsResponse|ResponseInterface
      * @throws InvalidResponseException
+     * @return DetailsResponse|ResponseInterface
      */
     public function sendData($data): ResponseInterface
     {

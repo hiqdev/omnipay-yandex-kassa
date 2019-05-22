@@ -1,9 +1,16 @@
 <?php
+/**
+ * Yandex.Kassa driver for Omnipay payment processing library
+ *
+ * @link      https://github.com/hiqdev/omnipay-yandex-kassa
+ * @package   omnipay-yandex-kassa
+ * @license   MIT
+ * @copyright Copyright (c) 2019, HiQDev (http://hiqdev.com/)
+ */
 
 namespace Omnipay\YandexKassa\Tests\Message;
 
 use Omnipay\YandexKassa\Message\CaptureRequest;
-use Omnipay\YandexKassa\Message\CaptureResponse;
 use Omnipay\YandexKassa\Message\DetailsResponse;
 use Omnipay\YandexKassa\Message\IncomingNotificationRequest;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
@@ -12,7 +19,6 @@ class CaptureResponseTest extends TestCase
 {
     /** @var IncomingNotificationRequest */
     private $request;
-
 
     private $shopId               = '54401';
     private $secretKey            = 'test_Fh8hUAVVBGUGbjmlzba6TB0iyUbos_lueTHE-axOwM0';
@@ -45,7 +51,7 @@ class CaptureResponseTest extends TestCase
                        ->willReturn([
                            [],
                            $this->fixture('payment.succeeded'),
-                           ['http_code' => 200]
+                           ['http_code' => 200],
                        ]);
 
         $this->getYandexClient($this->request)

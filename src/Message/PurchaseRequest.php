@@ -12,7 +12,6 @@ namespace Omnipay\YandexKassa\Message;
 
 use Omnipay\Common\Exception\InvalidRequestException;
 use Throwable;
-use YandexCheckout\Request\Payments\CreatePaymentResponse;
 
 /**
  * Class PurchaseRequest.
@@ -58,4 +57,3 @@ class PurchaseRequest extends AbstractRequest
         }
     }
 }
-

@@ -1,4 +1,12 @@
 <?php
+/**
+ * Yandex.Kassa driver for Omnipay payment processing library
+ *
+ * @link      https://github.com/hiqdev/omnipay-yandex-kassa
+ * @package   omnipay-yandex-kassa
+ * @license   MIT
+ * @copyright Copyright (c) 2019, HiQDev (http://hiqdev.com/)
+ */
 
 namespace Omnipay\YandexKassa\Message;
 
@@ -8,7 +16,7 @@ use Omnipay\Common\Message\RequestInterface;
 use YandexCheckout\Model\PaymentInterface;
 
 /**
- * Class DetailsResponse
+ * Class DetailsResponse.
  *
  * @author Dmytro Naumenko <d.naumenko.a@gmail.com>
  * @property PaymentInterface $data
@@ -86,5 +94,4 @@ class DetailsResponse extends AbstractResponse
 
         return $method->getTitle();
     }
-
 }

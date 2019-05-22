@@ -15,7 +15,7 @@ use YandexCheckout\Model\PaymentStatus;
 use YandexCheckout\Request\Payments\Payment\CreateCaptureResponse;
 
 /**
- * Class CaptureResponse
+ * Class CaptureResponse.
  *
  * @author Dmytro Naumenko <d.naumenko.a@gmail.com>
  * @property CreateCaptureResponse $data

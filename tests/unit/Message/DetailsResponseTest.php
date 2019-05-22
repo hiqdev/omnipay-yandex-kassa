@@ -1,4 +1,12 @@
 <?php
+/**
+ * Yandex.Kassa driver for Omnipay payment processing library
+ *
+ * @link      https://github.com/hiqdev/omnipay-yandex-kassa
+ * @package   omnipay-yandex-kassa
+ * @license   MIT
+ * @copyright Copyright (c) 2019, HiQDev (http://hiqdev.com/)
+ */
 
 namespace Omnipay\YandexKassa\Tests\Message;
 
@@ -37,7 +45,7 @@ class DetailsResponseTest extends TestCase
                        ->willReturn([
                            [],
                            $this->fixture('payment.waiting_for_capture'),
-                           ['http_code' => 200]
+                           ['http_code' => 200],
                        ]);
 
         $this->getYandexClient($this->request)

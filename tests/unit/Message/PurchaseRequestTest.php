@@ -1,20 +1,17 @@
 <?php
 /**
- * YandexKassa driver for the Omnipay PHP payment processing library
+ * Yandex.Kassa driver for Omnipay payment processing library
  *
- * @link      https://github.com/hiqdev/omnipay-YandexKassa
- * @package   omnipay-YandexKassa
+ * @link      https://github.com/hiqdev/omnipay-yandex-kassa
+ * @package   omnipay-yandex-kassa
  * @license   MIT
  * @copyright Copyright (c) 2019, HiQDev (http://hiqdev.com/)
  */
 
 namespace Omnipay\YandexKassa\Tests\Message;
 
-use Omnipay\YandexKassa\Message\CaptureResponse;
 use Omnipay\YandexKassa\Message\PurchaseRequest;
 use Omnipay\YandexKassa\Message\PurchaseResponse;
-use YandexCheckout\Model\Confirmation\ConfirmationRedirect;
-use YandexCheckout\Request\Payments\CreatePaymentResponse;
 
 class PurchaseRequestTest extends TestCase
 {

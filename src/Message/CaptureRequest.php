@@ -29,8 +29,8 @@ class CaptureRequest extends AbstractRequest
 
     /**
      * @param mixed $data
-     * @return \Omnipay\Common\Message\ResponseInterface|CaptureResponse
      * @throws InvalidRequestException
+     * @return \Omnipay\Common\Message\ResponseInterface|CaptureResponse
      */
     public function sendData($data)
     {
