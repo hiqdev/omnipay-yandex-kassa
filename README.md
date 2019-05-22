@@ -1,4 +1,4 @@
-# Omnipay: ePayments
+# Omnipay: Yandex.Kassa
 
 **Yandex.Kassa driver for Omnipay payment processing library**
 
@@ -9,15 +9,15 @@
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/hiqdev/omnipay-yandex-kassa.svg)](https://scrutinizer-ci.com/g/hiqdev/omnipay-yandex-kassa/)
 
 [Omnipay](https://github.com/omnipay/omnipay) is a framework agnostic, multi-gateway payment
-processing library for PHP 5.3+.
+processing library for PHP 7.1+.
 
-This package implements [ePayments](https://epayments.com/) support for Omnipay.
+This package implements [Yandex.Kassa](https://kassa.yandex.ru/) support for Omnipay.
 
 ## Basic Usage
 
 The following gateway is provided by this package:
 
-* [ePayments](http://epayments.com/)
+* [Yandex.Kassa](https://kassa.yandex.ru/)
 
 For general usage instructions, please see the main [Omnipay](https://github.com/omnipay/omnipay) repository.
 
@@ -31,5 +31,5 @@ If you want to keep up to date with release anouncements, discuss ideas for the 
 or ask more detailed questions, there is also a [mailing list](https://groups.google.com/forum/#!forum/omnipay) which
 you can subscribe to.
 
-If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/hiqdev/omnipay-epayments/issues),
+If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/hiqdev/omnipay-yandex-kassa/issues),
 or better yet, fork the library and submit a pull request.

@@ -1,8 +1,5 @@
-## [Under development]
 
 ## [2.0.0] - 2019-05-22
-
-- Implemented basic Yandex.Kassa operations ([@SilverFire])
 
 ## [Development started] - 2019-05-20
 
@@ -14,5 +11,4 @@
 [andreyklochok@gmail.com]: https://github.com/tafid
 [@BladeRoot]: https://github.com/BladeRoot
 [bladeroot@gmail.com]: https://github.com/BladeRoot
-[Under development]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/2.0.0...HEAD
 [2.0.0]: https://github.com/hiqdev/omnipay-yandex-kassa/releases/tag/2.0.0
