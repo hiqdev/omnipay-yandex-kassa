@@ -1,6 +1,8 @@
+## [Under development]
 
 ## [2.0.0] - 2019-05-22
 
+    - [332f075] 2019-05-22 Updated readme [@SilverFire]
     - [b8d9e65] 2019-05-22 fixed readme [@SilverFire]
     - [c9faba9] 2019-05-22 csfixed [@SilverFire]
     - [d9eb38a] 2019-05-22 Added unit tests coverage [@SilverFire]
@@ -23,3 +25,6 @@
 [da2a11b]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/da2a11b
 [32b9724]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/32b9724
 [2.0.0]: https://github.com/hiqdev/omnipay-yandex-kassa/releases/tag/2.0.0
+[332f075]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/332f075
+[Under development]: https://github.com/hiqdev/omnipay-yandex-kassa/releases
+[Development started]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/2.0.0...Development started
