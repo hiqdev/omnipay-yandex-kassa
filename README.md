@@ -7,7 +7,6 @@
 [![Build Status](https://img.shields.io/travis/hiqdev/omnipay-yandex-kassa.svg)](https://travis-ci.org/hiqdev/omnipay-yandex-kassa)
 [![Scrutinizer Code Coverage](https://img.shields.io/scrutinizer/coverage/g/hiqdev/omnipay-yandex-kassa.svg)](https://scrutinizer-ci.com/g/hiqdev/omnipay-yandex-kassa/)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/hiqdev/omnipay-yandex-kassa.svg)](https://scrutinizer-ci.com/g/hiqdev/omnipay-yandex-kassa/)
-[![Dependency Status](https://www.versioneye.com/php/hiqdev:omnipay-yandex-kassa/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:omnipay-yandex-kassa/dev-master)
 
 [Omnipay](https://github.com/omnipay/omnipay) is a framework agnostic, multi-gateway payment
 processing library for PHP 5.3+.

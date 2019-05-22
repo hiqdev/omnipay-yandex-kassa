@@ -10,8 +10,8 @@
 
 namespace Omnipay\YandexKassa;
 
-use Guzzle\Http\ClientInterface;
 use Omnipay\Common\AbstractGateway;
+use Omnipay\Common\Http\ClientInterface;
 use Omnipay\YandexKassa\Message\CaptureRequest;
 use Omnipay\YandexKassa\Message\CaptureResponse;
 use Omnipay\YandexKassa\Message\DetailsRequest;
