@@ -1,5 +1,9 @@
 ## [Under development]
 
+## [2.0.1] - 2019-08-05
+
+- Fixed insufficient IdempotencyKey uniqness in PurchaseRequest ([@SilverFire])
+
 ## [2.0.0] - 2019-05-22
 
 ## [Development started] - 2019-05-20
@@ -15,3 +19,4 @@
 [2.0.0]: https://github.com/hiqdev/omnipay-yandex-kassa/releases/tag/2.0.0
 [Under development]: https://github.com/hiqdev/omnipay-yandex-kassa/releases
 [Development started]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/2.0.0...Development started
+[2.0.1]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/2.0.0...2.0.1
