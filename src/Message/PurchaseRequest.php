@@ -49,11 +49,16 @@ class PurchaseRequest extends AbstractRequest
                 'metadata' => [
                     'transactionId' => $data['transactionId'],
                 ],
-            ], 'create-' . $data['transactionId']);
+            ], $this->makeIdempotencyKey());
 
             return $this->response = new PurchaseResponse($this, $paymentResponse);
         } catch (Throwable $e) {
             throw new InvalidRequestException('Failed to request purchase: ' . $e->getMessage(), 0, $e);
         }
+    }
+
+    private function makeIdempotencyKey(): string
+    {
+        return md5(implode(',', array_merge(['create'], $this->getData())));
     }
 }
