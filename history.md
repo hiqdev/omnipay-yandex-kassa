@@ -1,5 +1,10 @@
 ## [Under development]
 
+## [3.0.2] - 2019-08-06
+
+- Fixed `DetailsResponse::getPayer()`: Payment method title might be missing, so a fallback was implemented
+    - [1ee2301] 2019-08-06 Payment method title may be missing. Fallback implemented [@SilverFire]
+
 ## [3.0.1] - 2019-08-05
 
 - Fixed insufficient IdempotencyKey uniqness in PurchaseRequest
@@ -34,10 +39,12 @@
 [d9eb38a]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/d9eb38a
 [da2a11b]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/da2a11b
 [32b9724]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/32b9724
-[Under development]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.0...HEAD
+[Under development]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.1...HEAD
 [332f075]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/332f075
 [b8d9e65]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/b8d9e65
 [3.0.0]: https://github.com/hiqdev/omnipay-yandex-kassa/releases/tag/3.0.0
 [Development started]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/2.0.0...Development started
 [8d15076]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/8d15076
 [3.0.1]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.0...3.0.1
+[1ee2301]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/1ee2301
+[3.0.2]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.1...3.0.2
