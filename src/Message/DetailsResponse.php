@@ -92,6 +92,6 @@ class DetailsResponse extends AbstractResponse
     {
         $method = $this->data->getPaymentMethod();
 
-        return $method->getTitle();
+        return $method->getTitle() ?: $method->getType() ?: '';
     }
 }
