@@ -80,6 +80,11 @@ class Gateway extends AbstractGateway
         return $this->createRequest(PurchaseRequest::class, $this->injectYandexClient($parameters));
     }
 
+    public function completePurchase(array $parameters = [])
+    {
+        return $this->details($parameters);
+    }
+
     /**
      * @param array $parameters
      * @return CaptureResponse|\Omnipay\Common\Message\AbstractRequest
