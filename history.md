@@ -1,5 +1,10 @@
 ## [Under development]
 
+## [3.0.3] - 2020-07-07
+
+- Added payments capture flag (@igor-tv)
+    - [1554478] 2020-07-07 Added payments capture flag (#7) [@SilverFire]
+
 ## [3.0.2] - 2019-08-06
 
 - Fixed `DetailsResponse::getPayer()`: Payment method title might be missing, so a fallback was implemented
@@ -48,3 +53,5 @@
 [3.0.1]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.0...3.0.1
 [1ee2301]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/1ee2301
 [3.0.2]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.1...3.0.2
+[1554478]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/1554478
+[3.0.3]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.2...3.0.3
