@@ -26,6 +26,7 @@ class PurchaseResponseTest extends TestCase
     private $currency       = 'RUB';
     private $description    = 'Test completePurchase description';
     private $returnUrl      = 'https://www.foodstore.com/success';
+    private $capture        = false;
 
     public function setUp()
     {
@@ -39,6 +40,7 @@ class PurchaseResponseTest extends TestCase
             'currency'      => $this->currency,
             'description'   => $this->description,
             'returnUrl'     => $this->returnUrl,
+            'capture'       => $this->capture,
         ]);
     }
 
