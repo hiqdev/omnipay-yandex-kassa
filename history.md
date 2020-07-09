@@ -1,5 +1,10 @@
 ## [Under development]
 
+## [3.0.4] - 2020-07-09
+
+- Updated minimum required version of yandex-checkout-sdk-php [@SilverFire]
+    - [5721f15] 2020-07-09 Updated minimum required version of yandex-checkout-sdk-php [@SilverFire]
+
 ## [3.0.3] - 2020-07-07
 
 - Added payments capture flag (@igor-tv)
@@ -55,3 +60,5 @@
 [3.0.2]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.1...3.0.2
 [1554478]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/1554478
 [3.0.3]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.2...3.0.3
+[5721f15]: https://github.com/hiqdev/omnipay-yandex-kassa/commit/5721f15
+[3.0.4]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.3...3.0.4

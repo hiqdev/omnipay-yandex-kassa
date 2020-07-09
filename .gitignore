@@ -23,6 +23,9 @@ nbproject
 # phpunit generated files
 coverage.clover
 
+# dynamic files
+.phpunit.result.cache
+
 # Binaries
 chkipper.phar
 composer.phar
