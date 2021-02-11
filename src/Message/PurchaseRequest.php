@@ -24,7 +24,7 @@ class PurchaseRequest extends AbstractRequest
     {
         $this->validate('amount', 'currency', 'returnUrl', 'transactionId', 'description', 'capture');
 
-        return [
+        $data = [
             'amount' => $this->getAmount(),
             'currency' => $this->getCurrency(),
             'description' => $this->getDescription(),
@@ -32,28 +32,41 @@ class PurchaseRequest extends AbstractRequest
             'transactionId' => $this->getTransactionId(),
             'capture' => $this->getCapture(),
         ];
+
+        if (!empty($this->getReceipt())) {
+            $data['receipt'] = $this->getReceipt();
+        }
+
+        return $data;
     }
 
     public function sendData($data)
     {
+        $request = [
+            'amount' => [
+                'value' => $data['amount'],
+                'currency' => $data['currency'],
+            ],
+            'description' => $data['description'],
+            'confirmation' => [
+                'type' => 'redirect',
+                'return_url' => $data['return_url'],
+            ],
+            'capture' => $data['capture'],
+            'metadata' => [
+                'transactionId' => $data['transactionId'],
+            ],
+        ];
+
+        if (isset($data['receipt'])) {
+            $request['receipt'] = $data['receipt'];
+        }
+
         try {
-            $paymentResponse = $this->client->createPayment([
-                'amount' => [
-                    'value' => $data['amount'],
-                    'currency' => $data['currency'],
-                ],
-                'description' => $data['description'],
-                'confirmation' => [
-                    'type' => 'redirect',
-                    'return_url' => $data['return_url'],
-                ],
-                'capture' => $data['capture'],
-                'metadata' => [
-                    'transactionId' => $data['transactionId'],
-                ],
-            ], $this->makeIdempotencyKey());
+            $paymentResponse = $this->client->createPayment($request, $this->makeIdempotencyKey());
 
             return $this->response = new PurchaseResponse($this, $paymentResponse);
+
         } catch (Throwable $e) {
             throw new InvalidRequestException('Failed to request purchase: ' . $e->getMessage(), 0, $e);
         }
@@ -61,6 +74,6 @@ class PurchaseRequest extends AbstractRequest
 
     private function makeIdempotencyKey(): string
     {
-        return md5(implode(',', array_merge(['create'], $this->getData())));
+        return uniqid('', true);
     }
 }
