@@ -66,7 +66,6 @@ class PurchaseRequest extends AbstractRequest
             $paymentResponse = $this->client->createPayment($request, $this->makeIdempotencyKey());
 
             return $this->response = new PurchaseResponse($this, $paymentResponse);
-
         } catch (Throwable $e) {
             throw new InvalidRequestException('Failed to request purchase: ' . $e->getMessage(), 0, $e);
         }
