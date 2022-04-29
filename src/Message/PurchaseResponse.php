@@ -13,8 +13,8 @@ namespace Omnipay\YandexKassa\Message;
 use Omnipay\Common\Exception\InvalidResponseException;
 use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\RedirectResponseInterface;
-use YandexCheckout\Model\Confirmation\ConfirmationRedirect;
-use YandexCheckout\Request\Payments\CreatePaymentResponse;
+use YooKassa\Model\Confirmation\ConfirmationRedirect;
+use YooKassa\Request\Payments\CreatePaymentResponse;
 
 /**
  * Class PurchaseResponse.

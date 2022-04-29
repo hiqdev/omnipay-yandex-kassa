@@ -19,7 +19,7 @@ use Omnipay\YandexKassa\Message\DetailsResponse;
 use Omnipay\YandexKassa\Message\IncomingNotificationRequest;
 use Omnipay\YandexKassa\Message\PurchaseRequest;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
-use YandexCheckout\Client;
+use YooKassa\Client;
 
 /**
  * Class Gateway.

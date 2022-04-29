@@ -48,7 +48,7 @@
         "php": ">=7.1",
         "ext-json": "*",
         "omnipay/common": "^3.0",
-        "yandex-money/yandex-checkout-sdk-php": "^1.6.4"
+        "yoomoney/yookassa-sdk-php": "^2.4"
     },
     "require-dev": {
         "omnipay/tests": "^3.0",
